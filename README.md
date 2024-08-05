@@ -18,6 +18,8 @@ In modern web applications, managing state (data) can become complex, especially
 
 The store is where the entire state of your application resides. It is created using the createStore function and is the single source of truth for your app’s state.
 
+**CODE:**
+
 import { createStore } from 'redux';
 
 import rootReducer from './reducers';
@@ -29,6 +31,8 @@ const store = createStore(rootReducer);
 
 
 Actions are plain JavaScript objects that describe what happened in the application. They are the only way to send data to the store. Each action has a type and may include additional data (payload).
+
+**CODE:**
 
 const fetchProductsSuccess = (products) => ({
 
@@ -42,6 +46,8 @@ const fetchProductsSuccess = (products) => ({
 **Reducers:**
 
 Reducers are functions that specify how the state changes in response to an action. They take the current state and an action as arguments and return a new state. Reducers are pure functions, meaning they do not modify the existing state but return a new one.
+
+**CODE:**
 
 const productsReducer = (state = [], action) => {
 
@@ -65,6 +71,8 @@ const productsReducer = (state = [], action) => {
 Dispatch is a function provided by Redux that allows you to send actions to the store. When an action is dispatched, it is processed by the reducers to update the state.
 
 
+**CODE:**
+
 store.dispatch(fetchProductsSuccess(products));
 
 
@@ -72,6 +80,8 @@ store.dispatch(fetchProductsSuccess(products));
 
 
 The Provider component from react-redux makes the Redux store available to all components in your application. It uses React’s Context API to pass the store down through the component tree without prop drilling.
+
+**CODE:**
 
 import { Provider } from 'react-redux';
 
@@ -94,6 +104,8 @@ ReactDOM.render(
 
 
 In a React application, you can use the connect function from react-redux (or the newer hooks like useSelector and useDispatch) to access the store’s state and dispatch actions from within your components.
+
+**CODE:**
 
 import { useSelector, useDispatch } from 'react-redux';
 
