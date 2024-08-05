@@ -1,0 +1,29 @@
+/* Footer.css */
+
+.footer {
+    padding: 2rem 0;
+    background-color: #1b1c1d;
+    color: #f5f5f5;
+  }
+  
+  .footer .ui.header {
+    color: #f5f5f5;
+    margin-bottom: 1rem;
+  }
+  
+  .footer .ui.link.list .item,
+  .footer .ui.list .item {
+    color: #f5f5f5;
+  }
+  
+  .footer .ui.list .item:hover {
+    color: #2185d0; /* Change color on hover */
+  }
+  
+  .footer .ui.horizontal.divider {
+    color: #f5f5f5;
+    margin-top: 2rem;
+  }
+  .ui.list>a.item i.icon {
+    color: #fff;
+}  
