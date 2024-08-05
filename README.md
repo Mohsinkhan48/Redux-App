@@ -19,6 +19,7 @@ In modern web applications, managing state (data) can become complex, especially
 The store is where the entire state of your application resides. It is created using the createStore function and is the single source of truth for your app’s state.
 
 import { createStore } from 'redux';
+
 import rootReducer from './reducers';
 
 const store = createStore(rootReducer);
@@ -30,8 +31,11 @@ const store = createStore(rootReducer);
 Actions are plain JavaScript objects that describe what happened in the application. They are the only way to send data to the store. Each action has a type and may include additional data (payload).
 
 const fetchProductsSuccess = (products) => ({
+
   type: 'FETCH_PRODUCTS_SUCCESS',
+  
   payload: products,
+  
 });
 
 
@@ -40,11 +44,17 @@ const fetchProductsSuccess = (products) => ({
 Reducers are functions that specify how the state changes in response to an action. They take the current state and an action as arguments and return a new state. Reducers are pure functions, meaning they do not modify the existing state but return a new one.
 
 const productsReducer = (state = [], action) => {
+
   switch (action.type) {
+  
     case 'FETCH_PRODUCTS_SUCCESS':
+    
       return action.payload;
+      
     default:
+    
       return state;
+      
   }
 };
 
@@ -64,13 +74,20 @@ store.dispatch(fetchProductsSuccess(products));
 The Provider component from react-redux makes the Redux store available to all components in your application. It uses React’s Context API to pass the store down through the component tree without prop drilling.
 
 import { Provider } from 'react-redux';
+
 import store from './store';
 
+
 ReactDOM.render(
+
   <Provider store={store}>
+    
     <App />
+    
   </Provider>,
+  
   document.getElementById('root')
+  
 );
 
 
@@ -82,20 +99,31 @@ In a React application, you can use the connect function from react-redux (or th
 import { useSelector, useDispatch } from 'react-redux';
 
 const ProductList = () => {
+
   const dispatch = useDispatch();
+  
   const products = useSelector((state) => state.products);
 
   useEffect(() => {
+  
     dispatch(fetchProducts());
+    
   }, [dispatch]);
 
   return (
+  
     <div>
+    
       {products.map((product) => (
+      
         <div key={product.id}>{product.name}</div>
+        
       ))}
+      
     </div>
+    
   );
+  
 };
 
 
