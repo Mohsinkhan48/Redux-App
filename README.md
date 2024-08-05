@@ -87,7 +87,6 @@ ReactDOM.render(
   </Provider>,
   
   document.getElementById('root')
-  
 );
 
 
@@ -122,8 +121,7 @@ const ProductList = () => {
       
     </div>
     
-  );
-  
+  );  
 };
 
 
